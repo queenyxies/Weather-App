@@ -19,12 +19,13 @@
 
     <EditText
         android:id="@+id/et_city"
-        android:textSize="50px"
+        android:textSize="90px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter city here..."
         android:background="@drawable/custom_et"
         android:drawableStart="@drawable/location_ic"
+        android:padding="10px"
         android:drawablePadding="5dp"
         android:paddingStart="5dp"
         android:layout_margin="20px"
@@ -35,6 +36,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Check Weather" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="700px"
+        android:src="@drawable/weather"
+        />
 
     <Button
         android:id="@+id/btn_clear"
