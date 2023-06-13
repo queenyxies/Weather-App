@@ -14,28 +14,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="30dp"
-        android:textColor="@color/white"
+        android:textColor="#C1FFFFFF"
         />
 
     <EditText
         android:id="@+id/et_city"
-        android:textSize="90px"
+        android:textSize="50px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter city here..."
         android:background="@drawable/custom_et"
         android:drawableStart="@drawable/location_ic"
-        android:padding="10px"
+        android:padding="40px"
         android:drawablePadding="5dp"
         android:paddingStart="5dp"
-        android:layout_margin="20px"
+        android:layout_margin="40px"
+        android:drawableEnd="@drawable/search_ic"
         />
 
-    <Button
-        android:id="@+id/btn_check"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Check Weather" />
 
     <ImageView
         android:layout_width="match_parent"
