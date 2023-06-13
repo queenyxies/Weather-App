@@ -62,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private double convertToFahrenheit(double tempF) {
-        return (tempF - 32) * 5 / 9;
-    }
 
 
     private void function() {
