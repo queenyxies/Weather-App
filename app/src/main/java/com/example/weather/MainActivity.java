@@ -106,24 +106,31 @@ public class MainActivity extends AppCompatActivity {
                         JSONArray array = response.getJSONArray("weather");
                         JSONObject o = array.getJSONObject(0);
 
-                        String temp = obj.getString("temp");
-                        String min = obj.getString("temp_min");
-                        String max = obj.getString("temp_max");
+                        double tempKelvin = obj.getDouble("temp");
+                        double minKelvin = obj.getDouble("temp_min");
+                        double maxKelvin = obj.getDouble("temp_max");
                         String humid = obj.getString("humidity");
 
                         String weather = o.getString("main");
                         String desc = o.getString("description");
 
-                        tv_temp.setText(temp);
-                        tv_minTemp.setText(min);
-                        tv_maxTemp.setText(max);
+                        double tempCelsius = tempKelvin - 273.15;
+                        double minCelsius = minKelvin - 273.15;
+                        double maxCelsius = maxKelvin - 273.15;
+
+                        String formattedTemp = String.format("%.1f", tempCelsius);
+                        String formattedMin = String.format("%.1f", minCelsius);
+                        String formattedMax = String.format("%.1f", maxCelsius);
+
+                        tv_temp.setText(formattedTemp + " °C");
+                        tv_minTemp.setText(formattedMin + " °C");
+                        tv_maxTemp.setText(formattedMax + " °C");
                         tv_humid.setText(humid + "%");
                         tv_weather.setText(weather);
                         tv_des.setText(desc);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
-
                 },
                 error -> {
                     Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
@@ -131,4 +138,5 @@ public class MainActivity extends AppCompatActivity {
 
         q.add(data);
     }
+
 }
