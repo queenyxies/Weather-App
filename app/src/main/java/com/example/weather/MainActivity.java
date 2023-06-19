@@ -3,11 +3,13 @@ package com.example.weather;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
     EditText et_city;
     TextView tv_temp, tv_minTemp, tv_maxTemp, tv_humid, tv_weather, tv_des, tv_date;
     Button btn_clear;
+
+    ImageView img_weather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         tv_des = findViewById(R.id.tv_des);
         btn_clear = findViewById(R.id.btn_clear);
         tv_date = findViewById(R.id.tv_date);
+        img_weather = findViewById(R.id.img_weather);
 
         // Add location and search icons to the EditText
         Drawable locationIcon = getResources().getDrawable(R.drawable.location_ic);
@@ -128,6 +133,21 @@ public class MainActivity extends AppCompatActivity {
                         tv_humid.setText(humid + "%");
                         tv_weather.setText(weather);
                         tv_des.setText(desc);
+
+                        // Set the weather image
+                        if (weather.equalsIgnoreCase("Rain")) {
+                            img_weather.setImageResource(R.drawable.rain); // Replace with your rain image resource
+                        }
+                        else if (weather.equalsIgnoreCase("Clouds")) {
+                            img_weather.setImageResource(R.drawable.clouds);
+                        }
+                        else if (weather.equalsIgnoreCase("Haze")) {
+                            img_weather.setImageResource(R.drawable.haze);
+                        }
+                        else {
+                            // Set a default image or handle other weather conditions if needed
+                            img_weather.setImageResource(R.drawable.weather); // Replace with your default image resource
+                        }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
