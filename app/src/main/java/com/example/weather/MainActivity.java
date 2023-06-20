@@ -144,9 +144,12 @@ public class MainActivity extends AppCompatActivity {
                         else if (weather.equalsIgnoreCase("Haze")) {
                             img_weather.setImageResource(R.drawable.haze);
                         }
+                        else if (weather.equalsIgnoreCase("Thunderstorm")) {
+                            img_weather.setImageResource(R.drawable.thunderstorm);
+                        }
                         else {
                             // Set a default image or handle other weather conditions if needed
-                            img_weather.setImageResource(R.drawable.weather); // Replace with your default image resource
+                            img_weather.setImageResource(R.drawable.location ); // Replace with your default image resource
                         }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
